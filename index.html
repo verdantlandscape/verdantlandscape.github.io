@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verdant Landscapes | Professional Outdoor Design & Maintenance</title>
+    <style>
+        /* CSS Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2E8B57; /* SeaGreen */
+            --secondary: #8FBC8F; /* DarkSeaGreen */
+            --accent: #DAA520; /* GoldenRod */
+            --light: #F5F5DC; /* Beige */
+            --dark: #2F4F4F; /* DarkSlateGray */
+            --text: #333;
+            --light-text: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #bb860b; /* Darker shade of accent */
+        }
+
+        .btn-secondary {
+            background-color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #227a49; /* Darker shade of primary */
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(47, 79, 79, 0.7), rgba(47, 79, 79, 0.7)), url('https://placehold.co/1200x600/2E8B57/FFFFFF?text=Beautiful+Landscapes') no-repeat center center/cover;
+            color: var(--light-text);
+            text-align: center;
+            padding: 8rem 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: white;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-card-content {
+            padding: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: #f9f9f9;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            height: 250px; /* Fixed height for uniformity */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .cta h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--light-text);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-column p, .footer-column a {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Verdant Landscapes</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Transform Your Outdoor Space</h1>
+            <p>Professional landscaping services for stunning, functional, and sustainable gardens and hardscapes.</p>
+            <a href="#contact" class="btn">Get a Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://placehold.co/600x400/8FBC8F/FFFFFF?text=Landscape+Design" alt="Landscape Design">
+                    <div class="service-card-content">
+                        <h3>Landscape Design</h3>
+                        <p>Custom design plans tailored to your vision, property, and lifestyle. We create beautiful and functional outdoor spaces.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://placehold.co/600x400/DAA520/FFFFFF?text=Hardscape+Installation" alt="Hardscape Installation">
+                    <div class="service-card-content">
+                        <h3>Hardscape Installation</h3>
+                        <p>Expert installation of patios, walkways, retaining walls, outdoor kitchens, and fire features using premium materials.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://placehold.co/600x400/2E8B57/FFFFFF?text=Garden+Maintenance" alt="Garden Maintenance">
+                    <div class="service-card-content">
+                        <h3>Garden Maintenance</h3>
+                        <p>Ongoing care including mowing, pruning, fertilization, seasonal cleanups, and irrigation management to keep your landscape thriving.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Project Gallery</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x400/2E8B57/FFFFFF?text=Project+1" alt="Landscaping Project 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x400/8FBC8F/FFFFFF?text=Project+2" alt="Hardscape Project 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x400/DAA520/FFFFFF?text=Project+3" alt="Garden Design Project 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x400/2E8B57/FFFFFF?text=Project+4" alt="Outdoor Living Space Project 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x400/8FBC8F/FFFFFF?text=Project+5" alt="Water Feature Project 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://placehold.co/600x400/DAA520/FFFFFF?text=Project+6" alt="Seasonal Garden Project 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Enhance Your Property?</h2>
+            <p>Contact us today for a free consultation and quote. Let's bring your outdoor vision to life.</p>
+            <a href="#contact" class="btn btn-secondary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Verdant Landscapes</h3>
+                    <p>Creating beautiful and sustainable outdoor environments for homes and businesses.</p>
+                    <div class="social-links">
+                        <!-- Example social link icons (using text here) -->
+                        <a href="#">FB</a>
+                        <a href="#">IG</a>
+                        <a href="#">PT</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><strong>Phone:</strong> (555) 123-4567</p>
+                    <p><strong>Email:</strong> info@verdantlandscapes.com</p>
+                    <p><strong>Area Served:</strong> Metro Area, USA</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Verdant Landscapes. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
